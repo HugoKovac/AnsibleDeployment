@@ -22,3 +22,10 @@
     accept_hostkey: yes
     single_branch: yes
     version: main
+
+- name: Add to safe directory
+  shell: |
+    git config --global --add safe.directory /root/Boilerplate/web_dev
+    git config --global --add safe.directory /root/Boilerplate/web_prod
+    git config --global --add safe.directory /root/Boilerplate/backend
+    
