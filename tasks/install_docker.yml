@@ -1,0 +1,26 @@
+---
+- name: Add Docker GPG apt Key for Docker
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+  tags: [test]
+
+- name: Add Docker Repository
+  apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu focal stable
+    state: present
+  tags: [test]
+
+- name: Update apt and install all docker packages
+  apt:
+    name: "{{ item }}"
+    state: latest
+    update_cache: true
+  loop:
+    - docker-ce
+    - docker-ce-cli
+    - containerd.io
+    - docker-buildx-plugin
+    - docker-compose-plugin
+    - docker-compose
+  tags: [test]

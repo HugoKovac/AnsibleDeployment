@@ -1,0 +1,6 @@
+---
+- name: Add env
+  ansible.builtin.template:
+    src: templates/env.j2
+    dest: ~/Boilerplate/backend/.env
+    mode: '0644'

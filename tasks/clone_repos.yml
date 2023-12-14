@@ -1,0 +1,24 @@
+---
+- name: Clone prod branch
+  ansible.builtin.git:
+    repo: git@github.com:HugoKovac/BoilerplateWebServer.git
+    dest: ~/Boilerplate/web_prod
+    accept_hostkey: yes
+    single_branch: yes
+    version: prod
+
+- name: Clone dev branch
+  ansible.builtin.git:
+    repo: git@github.com:HugoKovac/BoilerplateWebServer.git
+    dest: ~/Boilerplate/web_dev
+    accept_hostkey: yes
+    single_branch: yes
+    version: dev
+
+- name: Clone backend
+  ansible.builtin.git:
+    repo: git@github.com:HugoKovac/BoilerplateBackend.git
+    dest: ~/Boilerplate/backend
+    accept_hostkey: yes
+    single_branch: yes
+    version: main

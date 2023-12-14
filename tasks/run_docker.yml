@@ -1,0 +1,12 @@
+---
+- name: Create network network_reverseproxy
+  docker_network:
+    name: network_reverseproxy
+    ipam_config:
+      - subnet: 172.18.0.0/16
+      
+
+- name: Run docker compose
+  shell: |
+    cd ~/Boilerplate/backend
+    docker-compose up -d --build

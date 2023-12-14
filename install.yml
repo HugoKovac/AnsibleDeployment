@@ -1,0 +1,7 @@
+- hosts: [server]
+  gather_facts: true
+  vars_files:
+    - vars/env.yml
+
+  tasks:
+    - import_tasks: tasks/main.yml
