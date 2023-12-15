@@ -6,6 +6,17 @@
       - subnet: 172.18.0.0/16
       
 
+- name: Stop docker compose
+  shell: |
+    cd ~/Boilerplate/backend
+    docker-compose down
+
+- name: Add web web_prod entrypoint
+  ansible.builtin.template:
+    src: templates/web_prod_entrypoint.sh.j2
+    dest: ~/Boilerplate/backend/web/prod/entrypoint.sh
+    mode: '0644'
+
 - name: Run docker compose
   shell: |
     cd ~/Boilerplate/backend
