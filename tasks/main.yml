@@ -1,5 +1,5 @@
 ---
-# - include: install_docker.yml
+- include: install_docker.yml
 - include: clone_repos.yml
 - include: add_env.yml
 - include: run_docker.yml
