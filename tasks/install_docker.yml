@@ -3,19 +3,17 @@
   apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
     state: present
-  tags: [test]
 
 - name: Add Docker Repository
   apt_repository:
     repo: deb https://download.docker.com/linux/ubuntu focal stable
     state: present
-  tags: [test]
 
 - name: Update apt and install all docker packages
   apt:
     name: "{{ item }}"
     state: latest
-    update_cache: true
+    # update_cache: true
   loop:
     - docker-ce
     - docker-ce-cli
@@ -23,4 +21,4 @@
     - docker-buildx-plugin
     - docker-compose-plugin
     - docker-compose
-  tags: [test]
+    - ufw

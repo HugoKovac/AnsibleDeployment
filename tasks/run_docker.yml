@@ -8,16 +8,22 @@
 
 - name: Stop docker compose
   shell: |
-    cd ~/Boilerplate/backend
+    cd {{ project_path }}/backend
     docker-compose down
 
 - name: Add web web_prod entrypoint
   ansible.builtin.template:
     src: templates/web_prod_entrypoint.sh.j2
-    dest: ~/Boilerplate/backend/web/prod/entrypoint.sh
+    dest: "{{ project_path }}/backend/web/prod/entrypoint.sh"
+    mode: '0644'
+
+- name: Add web web_dev entrypoint
+  ansible.builtin.template:
+    src: templates/web_dev_entrypoint.sh.j2
+    dest: "{{ project_path }}/backend/web/dev/entrypoint.sh"
     mode: '0644'
 
 - name: Run docker compose
   shell: |
-    cd ~/Boilerplate/backend
+    cd {{ project_path }}/backend
     docker-compose up -d --build

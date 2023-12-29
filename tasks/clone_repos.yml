@@ -2,7 +2,7 @@
 - name: Clone prod branch
   ansible.builtin.git:
     repo: git@github.com:HugoKovac/BoilerplateWebServer.git
-    dest: ~/Boilerplate/web_prod
+    dest: "{{ project_path }}/web_prod"
     accept_hostkey: yes
     single_branch: yes
     version: prod
@@ -10,7 +10,7 @@
 - name: Clone dev branch
   ansible.builtin.git:
     repo: git@github.com:HugoKovac/BoilerplateWebServer.git
-    dest: ~/Boilerplate/web_dev
+    dest: "{{ project_path }}/web_dev"
     accept_hostkey: yes
     single_branch: yes
     version: dev
@@ -18,14 +18,14 @@
 - name: Clone backend
   ansible.builtin.git:
     repo: git@github.com:HugoKovac/BoilerplateBackend.git
-    dest: ~/Boilerplate/backend
+    dest: "{{ project_path }}/backend"
     accept_hostkey: yes
     single_branch: yes
     version: main
 
 - name: Add to safe directory
   shell: |
-    git config --global --add safe.directory /root/Boilerplate/web_dev
-    git config --global --add safe.directory /root/Boilerplate/web_prod
-    git config --global --add safe.directory /root/Boilerplate/backend
+    git config --global --add safe.directory {{ project_path }}/web_dev
+    git config --global --add safe.directory {{ project_path }}/web_prod
+    git config --global --add safe.directory {{ project_path }}/backend
     
