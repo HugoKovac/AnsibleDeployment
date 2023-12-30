@@ -1,8 +1,0 @@
-postgres_password: ""
-pgadmin_password: ""
-jwt_secret_key: ""
-hostname: ""
-google_email: ""
-google_password: ""
-dev_whitlist_ip: ""
-project_path: ""

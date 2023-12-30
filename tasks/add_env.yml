@@ -4,3 +4,21 @@
     src: templates/env.j2
     dest: "{{ project_path }}/backend/.env"
     mode: '0644'
+
+- name: Create ssl directory
+  ansible.builtin.file:
+    path: "{{ project_path }}/backend/ssl"
+    state: directory
+    mode: '0755'
+
+- name: Add ssl certificate
+  ansible.builtin.copy:
+    src: "{{ ssl_cert_path }}"
+    dest: "{{ project_path }}/backend/ssl/server.cert"
+    mode: '0644'
+
+- name: Add ssl key
+  ansible.builtin.copy:
+    src: "{{ ssl_key_path }}"
+    dest: "{{ project_path }}/backend/ssl/server.key"
+    mode: '0644'
