@@ -20,7 +20,9 @@ You propably want to change:
 Fill this vars:
 
 - hostname
-- google_email
+- smtp_email
+- smtp_port
+- smtp_server
 - dev_whitlist_ip
 - project_path
 
@@ -39,7 +41,7 @@ Fill this vars with strong password:
 - postgres_password
 - pgadmin_password
 - jwt_secret_key
-- google_password
+- smtp_password
 
 > To get your `google_password` go on your google account and search for "app password"
 

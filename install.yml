@@ -1,6 +1,8 @@
 - hosts: [server]
   gather_facts: true
   vars_files:
+    - vars/defaults.yml
+    - vars/vars.yml
     - vars/env.yml
     - vars/vault.yml
 
