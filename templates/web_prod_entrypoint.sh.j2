@@ -2,7 +2,8 @@
 
 cd /home/web/srcs
 
-ufw enable
+ufw enable && ufw default deny incoming
+ufw allow from 172.18.0.0/16
 npm install
 
 npm run build

@@ -19,13 +19,20 @@ You propably want to change:
 
 Fill this vars:
 
-- hostname: portfolio.hkorpo.com
-- google_email: kovmaxime@gmail.com
-- dev_whitlist_ip: 2a02:2455:822f:a000:8487:a2b8:efd5:e76a
-- project_path: /root/BoilerPlate
+- hostname
+- google_email
+- dev_whitlist_ip
+- project_path
 
 
 ## vars/vault.yml
+
+```sh
+cd BoilerplateDeploy/vars
+ansible-vault create vault.yml
+```
+
+Add you password
 
 Fill this vars with strong password:
 
@@ -36,8 +43,17 @@ Fill this vars with strong password:
 
 > To get your `google_password` go on your google account and search for "app password"
 
+You can then modify it:
+```sh
+➜  vars git:(main) ✗ ansible-vault decrypt vault.yml 
+Vault password: 
+Decryption successful
+➜  vars git:(main) ✗ ansible-vault encrypt vault.yml
+```
 
-To connect to your server
+You can create `BoilerplateDeploy/vault_password` and add your password in it
+
+# Fork
 
 # Git access
 
@@ -51,22 +67,33 @@ This key will be used to:
 - Clone the repos
 - Push changes via the server (usefull for web_dev server)
 
-> You can use something like:
-> - Add in you `~/.ssh/config`
+-----
+
+You can use something like:
+- Add in you `~/.ssh/config`
 ```sh
 Host [server-address-here] [ip-address-here]
     ForwardAgent yes
 ```
-> - Then run:
+- Then run:
 ```sh
 ssh-agent
 ssh-add ~/.ssh/private-key-here
 ```
-> And add deploy key to [BoilerplateWebServer](https://github.com/HugoKovac/BoilerplateWebServer)
+And add deploy key to [BoilerplateWebServer](https://github.com/HugoKovac/BoilerplateWebServer)
 
-> But that's way longer
+But that's way longer
+
 
 # Run playbook
+
+After filling the vars you can know run the command: `ansible-playbook install.yml`
+
+To keep an eye on the web servers building advancement you can:
+- `docker logs -f web_dev`
+- `docker logs -f web_prod`
+
+> Don't forget to open the ports 22,80,81,443,3000,5555,8080 on your server
 
 # SSL certs
 
@@ -79,3 +106,7 @@ To add your ssl certificate:
     - Choose the cert you joust created
     - enable *Force SSL*
     - enable *HTTP/2 Support*
+
+# Nginx
+
+To access the logs of nginx you can `tail -f $PROJECT_PATH/backend/nginx/data/logs/proxy-host-1_(error/access).log`

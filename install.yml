@@ -2,6 +2,7 @@
   gather_facts: true
   vars_files:
     - vars/env.yml
+    - vars/vault.yml
 
   tasks:
     - import_tasks: tasks/main.yml

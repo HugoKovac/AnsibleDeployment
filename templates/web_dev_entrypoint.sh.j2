@@ -4,9 +4,9 @@ cd /home/web/srcs
 
 chown -R web /home/web/srcs/
 
-ufw enable
-ufw enable && ufw default deny incoming
-ufw allow from {{ dev_whitlist_ip }}
+# ufw enable && ufw default deny incoming
+# ufw allow from {{ dev_whitlist_ip }}
+# ufw allow from 172.18.0.0/16
 su web
 
 npm install

@@ -1,7 +1,7 @@
 ---
 - name: Clone prod branch
   ansible.builtin.git:
-    repo: git@github.com:HugoKovac/BoilerplateWebServer.git
+    repo: "{{ git_web_url | default('git@github.com:HugoKovac/BoilerplateWebServer.git') }}"
     dest: "{{ project_path }}/web_prod"
     accept_hostkey: yes
     single_branch: yes
@@ -9,7 +9,7 @@
 
 - name: Clone dev branch
   ansible.builtin.git:
-    repo: git@github.com:HugoKovac/BoilerplateWebServer.git
+    repo: "{{ git_web_url | default('git@github.com:HugoKovac/BoilerplateWebServer.git') }}"
     dest: "{{ project_path }}/web_dev"
     accept_hostkey: yes
     single_branch: yes
@@ -17,7 +17,7 @@
 
 - name: Clone backend
   ansible.builtin.git:
-    repo: git@github.com:HugoKovac/BoilerplateBackend.git
+    repo: "{{ git_web_url | default('git@github.com:HugoKovac/BoilerplateBackend.git') }}"
     dest: "{{ project_path }}/backend"
     accept_hostkey: yes
     single_branch: yes
