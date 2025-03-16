@@ -1,8 +1,8 @@
-# BoilerplateDeploy
+# Ansible Deployment
 
 This repo contains ansible tasks and playbooks to deploy the Boilerplate.
 
-Make sure you add your ssh key as a deployment key for the [SveltePrismaAuth](https://github.com/HugoKovac/SveltePrismaAuth) and BoilerplateBackend (Deleted Since)
+Make sure you add your SSH key as a deployment key for the [SveltePrismaAuth](https://github.com/HugoKovac/SveltePrismaAuth) and BoilerplateBackend (Deleted Since)
 
 
 # Variables
