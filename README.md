@@ -1,15 +1,15 @@
 # BoilerplateDeploy
 
-This repo containes ansible tasks ans playbooks to deploy the Boilerplate.
+This repo contains ansible tasks and playbooks to deploy the Boilerplate.
 
-Make sur you add your ssh key as a deployment key for the [BoilerplateWebServer](https://github.com/HugoKovac/BoilerplateWebServer) and [BoilerplateBackend](https://github.com/HugoKovac/BoilerplateBackend)
+Make sure you add your ssh key as a deployment key for the [SveltePrismaAuth](https://github.com/HugoKovac/SveltePrismaAuth) and BoilerplateBackend (Deleted Since)
 
 
 # Variables
 
 ## ansible.cfg
 
-You propably want to change:
+You probably want to change:
 
 - remote_port
 - private_key_file
